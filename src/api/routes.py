@@ -21,7 +21,7 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-# User routes
+# User Routes
 
 @api.route('/users', methods=['GET'])
 def get_users():
@@ -35,7 +35,7 @@ def get_users():
 
     return jsonify(response_body), 200
     
-# character routes
+# Character Routes
 
 @api.route('/people', methods=['GET'])
 def get_character():
@@ -49,7 +49,7 @@ def get_character():
 
     return jsonify(response_body), 200
 
-# Planets routes:
+# Routes of Planets
 
 @api.route('/planets', methods=['GET'])
 def get_planets():
@@ -65,7 +65,7 @@ def get_planets():
 
     return jsonify(response_body), 200
 
-# get one planet
+# Get One Planet
 
 @api.route('/planets/<int:planet_id>', methods=['GET'])
 def get_planet(planet_id):
@@ -81,7 +81,7 @@ def get_planet(planet_id):
 
     return jsonify(response_body), 200
 
-# get one character
+# Getting One Character 
 
 @api.route('/people/<int:people_id>', methods=['GET'])
 def get_people(people_id):
@@ -97,7 +97,7 @@ def get_people(people_id):
 
     return jsonify(response_body), 200
 
-# get favorites
+# Getting Favorites
 
 @api.route('/users/favorites', methods=['POST'])
 def get_users_favorites():
@@ -113,7 +113,7 @@ def get_users_favorites():
 
     return jsonify(response_body), 200
 
-# post new planet
+# Posting New Planets
 
 @api.route('/favorite/planet/<int:planet_id>', methods=['POST'])
 def add_new_favorite_planet(planet_id):
@@ -142,7 +142,7 @@ def add_new_favorite_planet(planet_id):
 
     return jsonify(response_body), 200
 
-# post new character
+# Posting New Characters 
 
 @api.route('/favorite/people/<int:people_id>', methods=['POST'])
 def add_new_favorite_character(people_id):
@@ -170,7 +170,7 @@ def add_new_favorite_character(people_id):
 
     return jsonify(response_body), 200
 
-# delete favorite planet
+# Deleting Favorite Planet 
 
 @api.route('/favorite/planet/<int:planet_id>', methods = ['DELETE'])
 def delete_favorite_planet(planet_id):
