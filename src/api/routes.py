@@ -130,7 +130,7 @@ def add_new_favorite_planet(planet_id):
     new_favorite = Favorite(user_id = user_id, planet_id = planet_id)
     db.session.add(new_favorite)
     db.session.commit()
-    favorites = Favorite.query.all()
+    favorites = Favorite.query.filter_by(user_id = user_id)
     serialized_favorites = []
     for favorite in favorites:
         if favorite.user_id == user_id:
@@ -159,7 +159,7 @@ def add_new_favorite_character(people_id):
     new_favorite = Favorite(user_id = user_id, character_id = people_id)
     db.session.add(new_favorite)
     db.session.commit()
-    favorites = Favorite.query.all()
+    favorites = Favorite.query.filter_by(user_id = user_id)
     serialized_favorites = []
     for favorite in favorites:
         if favorite.user_id == user_id:
@@ -183,7 +183,7 @@ def delete_favorite_planet(planet_id):
         return jsonify({"message" : "This planet is not part of favorites"}), 409
     db.session.delete(favorite)
     db.session.commit()
-    favorites = Favorite.query.all()
+    favorites = Favorite.query.filter_by(user_id = user_id)
     serialized_favorites = []
     for favorite in favorites:
         if favorite.user_id == user_id:
@@ -211,7 +211,7 @@ def delete_favorite_character(people_id):
     serialized_favorites = []
     for favorite in favorites:
         if favorite.user_id == user_id:
-            serialized_favorites.append(favorite.serialize())
+            serialized_favorites.query.filter_by(user_id = user_id)
     response_body = {
         "message": "Character succesfully deleted from your favorites, here is the new list ", "favorites" : serialized_favorites
     }
